@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif JP", "Cormorant Garamond", serif;
+  
+  --color-gold: #D4AF37;
+  --color-champagne: #F7E7CE;
+  --color-ivory: #FFFFF0;
+  --color-ink: #1A1A1A;
+  --color-paper: #FDFDFD;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+.luxury-border {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.luxury-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
