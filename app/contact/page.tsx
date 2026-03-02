@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
-const Contact = () => {
+export default function Contact() {
   const [submitted, setSubmitted] = React.useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -12,13 +14,8 @@ const Contact = () => {
 
   return (
     <div className="pb-32">
-      {/* Header */}
       <section className="py-32 px-6 bg-ivory text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mx-auto"
-        >
+        <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} className="max-w-3xl mx-auto">
           <span className="text-gold tracking-[0.3em] uppercase text-xs font-semibold mb-6 block">Contact</span>
           <h1 className="text-5xl md:text-6xl font-serif mb-10">お問い合わせ</h1>
           <p className="text-ink/60 text-lg leading-relaxed">
@@ -30,14 +27,13 @@ const Contact = () => {
 
       <section className="py-32 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          {/* Info */}
           <div>
             <h2 className="text-3xl font-serif mb-10">Get in Touch</h2>
             <p className="text-ink/60 leading-relaxed mb-12">
               お問い合わせ内容を確認後、通常2〜3営業日以内にご返信いたします。
               お急ぎの場合は、公式LINEからも受け付けております。
             </p>
-            
+
             <div className="space-y-8">
               <div className="flex items-start space-x-6">
                 <div className="w-12 h-12 rounded-full bg-champagne flex items-center justify-center shrink-0">
@@ -69,7 +65,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Form */}
           <div className="bg-white p-10 md:p-16 rounded-3xl shadow-2xl luxury-border">
             {submitted ? (
               <motion.div
@@ -130,7 +125,7 @@ const Contact = () => {
                     rows={5}
                     placeholder="メッセージを入力してください"
                     className="w-full bg-paper border-b border-gold/20 py-4 px-2 focus:border-gold outline-none transition-colors resize-none"
-                  ></textarea>
+                  />
                 </div>
                 <button
                   type="submit"
@@ -145,6 +140,4 @@ const Contact = () => {
       </section>
     </div>
   );
-};
-
-export default Contact;
+}

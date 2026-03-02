@@ -33,9 +33,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontClass = [notoSans.variable, notoSerif.variable, cormorant.variable].join(' ');
+
   return (
-    <html lang="ja" className={`${notoSans.variable} ${notoSerif.variable} ${cormorant.variable}`} suppressHydrationWarning>
-      <body>
+    <html lang="ja" className={fontClass} suppressHydrationWarning>
+      <body className={fontClass} style={{ backgroundColor: '#FDFDFD', color: '#1A1A1A' }}>
         <Layout>{children}</Layout>
       </body>
     </html>

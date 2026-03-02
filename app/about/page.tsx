@@ -1,13 +1,15 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 
-const About = () => {
+export default function About() {
   return (
     <div className="pb-32">
-      {/* Hero */}
       <section className="py-32 px-6 bg-ivory text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-3xl mx-auto"
         >
@@ -21,7 +23,6 @@ const About = () => {
         </motion.div>
       </section>
 
-      {/* Story */}
       <section className="py-32 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="order-2 md:order-1">
@@ -47,12 +48,13 @@ const About = () => {
             </div>
           </div>
           <div className="order-1 md:order-2">
-            <div className="relative">
-              <img
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl luxury-border">
+              <Image
                 src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop"
                 alt="Meditation"
-                className="rounded-2xl shadow-2xl luxury-border"
-                referrerPolicy="no-referrer"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-gold/10 rounded-full blur-3xl -z-10" />
             </div>
@@ -60,7 +62,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
       <section className="bg-white py-32 px-6">
         <div className="max-w-7xl mx-auto text-center mb-20">
           <h2 className="text-4xl font-serif mb-6">大切にしている3つの価値</h2>
@@ -68,21 +69,9 @@ const About = () => {
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            {
-              title: "Authenticity",
-              subtitle: "真実性",
-              desc: "表面的なテクニックではなく、あなたの魂の真実にアプローチします。"
-            },
-            {
-              title: "Empowerment",
-              subtitle: "自己実現",
-              desc: "占いに依存するのではなく、自らの力で運命を切り拓くサポートをします。"
-            },
-            {
-              title: "Connection",
-              subtitle: "深い繋がり",
-              desc: "孤独を埋めるための出会いではなく、魂が成長し合える繋がりを目指します。"
-            }
+            { title: 'Authenticity', subtitle: '真実性', desc: '表面的なテクニックではなく、あなたの魂の真実にアプローチします。' },
+            { title: 'Empowerment', subtitle: '自己実現', desc: '占いに依存するのではなく、自らの力で運命を切り拓くサポートをします。' },
+            { title: 'Connection', subtitle: '深い繋がり', desc: '孤独を埋めるための出会いではなく、魂が成長し合える繋がりを目指します。' },
           ].map((value, i) => (
             <motion.div
               key={i}
@@ -101,6 +90,4 @@ const About = () => {
       </section>
     </div>
   );
-};
-
-export default About;
+}

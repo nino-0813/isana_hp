@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/c54def00-1fce-4ecf-99df-1067d
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy on Vercel
+
+1. Push this project to GitHub (e.g. `nino-0813/isana_hp`).
+2. Go to [vercel.com](https://vercel.com) → **Add New Project** → **Import** your repository.
+3. Leave **Framework Preset** as **Next.js** (auto-detected). Click **Deploy**.
+4. Your site will be live at `https://your-project.vercel.app`.

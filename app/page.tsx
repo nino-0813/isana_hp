@@ -1,23 +1,25 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Heart, Compass } from 'lucide-react';
 
-const Home = () => {
+export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center bg-ivory">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-champagne/30 rounded-full blur-[100px]" />
         </div>
-        
+
         <div className="relative z-10 text-center px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5 }}
           >
             <span className="inline-block text-gold tracking-[0.5em] uppercase text-xs mb-6 font-medium">
               Destiny & Numbers
@@ -31,7 +33,7 @@ const Home = () => {
               あなたの魂が求める真実のパートナーシップへと導きます。
             </p>
             <Link
-              to="/services"
+              href="/services"
               className="inline-flex items-center space-x-4 bg-ink text-white px-10 py-5 rounded-full hover:bg-gold transition-all duration-500 group"
             >
               <span className="tracking-widest uppercase text-sm font-medium">鑑定メニューを見る</span>
@@ -46,7 +48,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Philosophy Section */}
       <section className="py-32 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -54,15 +55,17 @@ const Home = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl luxury-border"
           >
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop"
               alt="Luxury Interior"
-              className="rounded-2xl shadow-2xl luxury-border"
-              referrerPolicy="no-referrer"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </motion.div>
-          
+
           <div>
             <span className="text-gold tracking-[0.3em] uppercase text-xs font-semibold mb-6 block">The Charm of Numerology</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
@@ -96,10 +99,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="bg-ink text-white py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-gold)_0%,_transparent_70%)]" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#D4AF37_0%,_transparent_70%)]" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <Compass size={48} className="text-gold mx-auto mb-10" />
@@ -111,7 +113,7 @@ const Home = () => {
             まずはあなたの数字を知ることから始めましょう。
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-block border border-gold text-gold px-12 py-5 rounded-full hover:bg-gold hover:text-ink transition-all duration-500 tracking-[0.2em] uppercase text-sm font-semibold"
           >
             無料相談・お問い合わせ
@@ -120,6 +122,4 @@ const Home = () => {
       </section>
     </div>
   );
-};
-
-export default Home;
+}
