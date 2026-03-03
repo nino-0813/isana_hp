@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     '数秘術を通じて、あなただけの運命のパートナーを見つけるための高級感あふれるプラットフォーム。セッション、ブログ、そしてあなたの人生を輝かせるコンテンツを提供します。',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
