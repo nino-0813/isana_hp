@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Compass, MapPin } from 'lucide-react';
 
 const NINE_WAVES = [
   { num: 1, label: '発展' },
@@ -57,9 +56,6 @@ export default function Home() {
             に合わせた行動ができていないだけかもしれません。
           </p>
           <div className="flex flex-col items-center gap-4 sm:gap-6">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-champagne flex items-center justify-center flex-shrink-0">
-              <MapPin size={22} className="text-gold sm:w-6 sm:h-6" />
-            </div>
             <p className="text-ink text-base sm:text-lg md:text-xl leading-relaxed">
               数秘術は、あなたが今どの季節にいて、
               <br className="hidden sm:block" />
@@ -356,7 +352,6 @@ export default function Home() {
       <section className="relative py-16 sm:py-20 md:py-28 lg:py-36 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-champagne/80 via-ivory to-champagne/90">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_30%,_rgba(212,175,55,0.08)_0%,_transparent_55%)]" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <Compass size={36} className="text-gold mx-auto mb-6 sm:mb-8 w-9 h-9 sm:w-10 sm:h-10" />
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-4 sm:mb-6 text-ink leading-tight px-1">
             あなたの運命を、
             <br />

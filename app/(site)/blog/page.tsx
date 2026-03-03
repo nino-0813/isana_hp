@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'motion/react';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 
 const posts = [
@@ -44,27 +43,23 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div className="pb-32">
-      <section className="py-32 px-6 bg-ivory text-center">
-        <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} className="max-w-3xl mx-auto">
-          <span className="text-gold tracking-[0.3em] uppercase text-xs font-semibold mb-6 block">Journal</span>
-          <h1 className="text-5xl md:text-6xl font-serif mb-10">パートナー探しのヒント</h1>
-          <p className="text-ink/60 text-lg leading-relaxed">
+    <div className="pb-24 sm:pb-32">
+      <section className="py-14 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-ivory text-center">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-[10px] sm:text-xs font-semibold mb-4 sm:mb-6 block">Journal</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 sm:mb-10">パートナー探しのヒント</h1>
+          <p className="text-ink/60 text-sm sm:text-base md:text-lg leading-relaxed">
             数秘術の知恵を日常に活かし、<br />
             理想のパートナーシップを引き寄せるためのコラム。
           </p>
-        </motion.div>
+        </div>
       </section>
 
-      <section className="py-32 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+      <section className="py-14 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-12 sm:gap-y-16 md:gap-y-20">
           {posts.map((post, i) => (
-            <motion.article
+            <article
               key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="group cursor-pointer"
             >
               <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-8">
@@ -102,7 +97,7 @@ export default function Blog() {
                 <span>Read More</span>
                 <ArrowRight size={16} />
               </Link>
-            </motion.article>
+            </article>
           ))}
         </div>
 

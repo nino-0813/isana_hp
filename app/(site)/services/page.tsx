@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
 import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -47,29 +46,25 @@ export default function Services() {
   ];
 
   return (
-    <div className="pb-32">
-      <section className="py-32 px-6 bg-ivory text-center">
-        <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} className="max-w-3xl mx-auto">
-          <span className="text-gold tracking-[0.3em] uppercase text-xs font-semibold mb-6 block">Services</span>
-          <h1 className="text-5xl md:text-6xl font-serif mb-10">鑑定メニュー・商品詳細</h1>
-          <p className="text-ink/60 text-lg leading-relaxed">
+    <div className="pb-24 sm:pb-32">
+      <section className="py-14 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-ivory text-center">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-[10px] sm:text-xs font-semibold mb-4 sm:mb-6 block">Services</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 sm:mb-10">鑑定メニュー・商品詳細</h1>
+          <p className="text-ink/60 text-sm sm:text-base md:text-lg leading-relaxed">
             あなたの現在の状況や目的に合わせて、<br />
             最適なプランをお選びいただけます。
           </p>
-        </motion.div>
+        </div>
       </section>
 
-      <section className="py-32 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="py-14 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {plans.map((plan, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative p-10 rounded-3xl border ${
-                plan.featured ? 'border-gold bg-white shadow-2xl scale-105 z-10' : 'border-gold/10 bg-white/50'
+              className={`relative p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border ${
+                plan.featured ? 'border-gold bg-white shadow-2xl lg:scale-105 z-10' : 'border-gold/10 bg-white/50'
               }`}
             >
               {plan.featured && (
@@ -96,33 +91,33 @@ export default function Services() {
               </ul>
               <Link
                 href="/contact"
-                className={`w-full py-4 rounded-full flex items-center justify-center space-x-3 transition-all duration-500 ${
+                className={`w-full min-h-[48px] py-4 rounded-full flex items-center justify-center space-x-3 transition-all duration-300 touch-manipulation ${
                   plan.featured ? 'bg-gold text-white hover:bg-ink' : 'border border-ink text-ink hover:bg-ink hover:text-white'
                 }`}
               >
                 <span className="text-sm tracking-widest uppercase font-semibold">申し込む</span>
                 <ArrowRight size={16} />
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="py-32 px-6 bg-white">
+      <section className="py-14 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-serif text-center mb-16">よくあるご質問</h2>
-          <div className="space-y-8">
+          <h2 className="text-2xl sm:text-3xl font-serif text-center mb-10 sm:mb-14 md:mb-16">よくあるご質問</h2>
+          <div className="space-y-5 sm:space-y-6 md:space-y-8">
             {[
               { q: '数秘術が初めてでも大丈夫ですか？', a: 'はい、もちろんです。専門用語を使わず、どなたでも理解しやすいよう丁寧にご説明いたします。' },
               { q: 'オンラインでの鑑定は可能ですか？', a: 'はい、Zoomを使用したオンライン鑑定をメインに行っております。全国どこからでも受講可能です。' },
               { q: '特定の相手との相性も分かりますか？', a: 'はい、お相手の生年月日が分かれば、より深い相性診断が可能です。' },
             ].map((faq, i) => (
-              <div key={i} className="p-8 border border-gold/10 rounded-2xl">
-                <h4 className="font-serif text-lg mb-4 flex items-center space-x-4">
-                  <span className="text-gold">Q.</span>
+              <div key={i} className="p-5 sm:p-6 md:p-8 border border-gold/10 rounded-xl sm:rounded-2xl">
+                <h4 className="font-serif text-base sm:text-lg mb-3 sm:mb-4 flex items-center space-x-3 sm:space-x-4">
+                  <span className="text-gold shrink-0">Q.</span>
                   <span>{faq.q}</span>
                 </h4>
-                <p className="text-ink/60 leading-relaxed pl-8">{faq.a}</p>
+                <p className="text-ink/60 text-sm sm:text-base leading-relaxed pl-6 sm:pl-8">{faq.a}</p>
               </div>
             ))}
           </div>
