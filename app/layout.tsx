@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP, Noto_Serif_JP, Cormorant_Garamond } from 'next/font/google';
-import { Layout } from '@/components/Layout';
 import './globals.css';
 
 const notoSans = Noto_Sans_JP({
@@ -37,8 +36,10 @@ export default function RootLayout({
 
   return (
     <html lang="ja" className={fontClass} suppressHydrationWarning>
-      <body className={fontClass} style={{ backgroundColor: '#FDFDFD', color: '#1A1A1A' }}>
-        <Layout>{children}</Layout>
+      <body className={`${fontClass} min-h-screen w-full m-0 bg-paper text-ink font-sans antialiased`} suppressHydrationWarning>
+        <div className="min-h-screen w-full">
+          {children}
+        </div>
       </body>
     </html>
   );

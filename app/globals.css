@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply min-h-full;
+  }
+
   body {
-    @apply bg-paper text-ink font-sans antialiased;
+    @apply min-h-screen w-full m-0 bg-paper text-ink font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -29,4 +33,30 @@
 .vertical-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
+}
+
+/* トップ：1本の流れるグラデーション（境目をなくす） */
+.gradient-flow {
+  background: linear-gradient(
+    180deg,
+    #1e1b4b 0%,
+    #2e1065 12%,
+    #4c1d95 25%,
+    #5b21b6 38%,
+    #7c3aed 50%,
+    #a78bfa 62%,
+    #c4b5fd 72%,
+    #e9d5ff 80%,
+    #fef3c7 88%,
+    #fde68a 92%,
+    #e9d5ff 95%,
+    #7c3aed 100%
+  );
+  background-attachment: scroll;
+}
+
+/* ドーナツチャート */
+.donut-segment {
+  fill: none;
+  stroke-linecap: round;
 }

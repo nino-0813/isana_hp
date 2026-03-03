@@ -121,9 +121,9 @@ const Footer = () => {
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen w-full flex flex-col">
       <Header />
-      <main className="flex-grow pt-20">
+      <main className="flex-1 w-full pt-20">
         {children}
       </main>
       <Footer />
