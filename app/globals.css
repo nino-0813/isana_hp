@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Aozora Mincho';
+  src: url('https://cdn.leafscape.be/aozoramincho/AozoraMinchoThin_web.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aozora Mincho';
+  src: url('https://cdn.leafscape.be/aozoramincho/AozoraMinchoLight_web.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aozora Mincho';
+  src: url('https://cdn.leafscape.be/aozoramincho/AozoraMinchoRegular_web.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aozora Mincho';
+  src: url('https://cdn.leafscape.be/aozoramincho/AozoraMinchoMedium_web.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aozora Mincho';
+  src: url('https://cdn.leafscape.be/aozoramincho/AozoraMincho-bold_web.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    @apply min-h-full;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-screen w-full m-0 text-ink font-serif antialiased overflow-x-hidden;
+    background-color: #faf8f5;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+}
+
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+.section-divider {
+  border-top: 1px solid rgba(197, 185, 168, 0.3);
+}
+
+.card-natural {
+  background-color: #fff;
+  border-radius: 1rem;
+  border: 1px solid rgba(235, 227, 216, 0.6);
+  box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.04);
+}
+
+.card-natural:hover {
+  box-shadow: 0 4px 20px -6px rgba(0, 0, 0, 0.08);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.gradient-warm {
+  background: linear-gradient(180deg, #faf8f5 0%, #f5f0ea 50%, #ebe3d8 100%);
+}
