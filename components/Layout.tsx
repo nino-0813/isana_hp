@@ -15,6 +15,11 @@ const NAV_ITEMS = [
   { name: 'お問い合わせ', path: '/contact' },
 ] as const;
 
+const FOOTER_NAV_ITEMS = [
+  ...NAV_ITEMS,
+  { name: 'キャンセルポリシー', path: '/cancel-policy' },
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const pathname = usePathname();
@@ -139,7 +144,7 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-sm text-warm-800 mb-4 tracking-wide">ナビゲーション</h4>
             <ul className="space-y-3 text-sm text-warm-600">
-              {NAV_ITEMS.map((item) => (
+              {FOOTER_NAV_ITEMS.map((item) => (
                 <li key={item.path}>
                   <Link href={item.path} className="hover:text-warm-800 transition-colors">
                     {item.name}

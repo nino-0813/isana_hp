@@ -318,7 +318,7 @@ const PRODUCTS = [
     title: '講座・ワークショップ',
     subtitle: '無料体験',
     desc: 'グループで数秘術を体感できるワークショップ。無料でご参加いただけます。実際に自分の数字を計算しながら、数秘の世界に触れてみましょう。',
-    image: '/images/h_03.svg',
+    image: '/images/workshop-line.svg',
     link: '/services',
     linkLabel: '無料体験に申し込む',
   },
@@ -404,11 +404,11 @@ export default function Home() {
               className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-12 items-center`}
             >
               <div className="w-full md:w-1/2">
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-warm-100">
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className={`absolute inset-0 w-full h-full object-center ${product.image === '/images/ebook-cover.svg' || product.image === '/images/assessment-doc-a4.svg' ? 'object-contain' : 'object-cover'}`}
+                    className="absolute inset-0 w-full h-full object-contain object-center"
                     loading="lazy"
                   />
                 </div>
