@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Send } from 'lucide-react';
+import { Mail, Send, ChevronDown } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = React.useState(false);
@@ -128,16 +128,24 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[11px] tracking-wide text-warm-500 ml-0.5">お問い合わせ内容</label>
-                  <select
-                    name="subject"
-                    className="w-full bg-white border border-warm-200 rounded-lg py-3 px-4 text-sm focus:border-warm-400 outline-none transition-colors appearance-none"
-                  >
-                    <option value="鑑定のご予約について">鑑定のご予約について</option>
-                    <option value="サービスに関するお問い合わせ">サービスに関するお問い合わせ</option>
-                    <option value="無料体験ワークショップ">無料体験ワークショップ</option>
-                    <option value="取材・お仕事のご依頼">取材・お仕事のご依頼</option>
-                    <option value="その他">その他</option>
-                  </select>
+                  <p className="text-[10px] text-warm-400 ml-0.5">下の一覧から1つお選びください</p>
+                  <div className="relative">
+                    <select
+                      name="subject"
+                      required
+                      className="w-full bg-white border border-warm-200 rounded-lg py-3 pl-4 pr-10 text-sm focus:border-warm-400 outline-none transition-colors appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled>
+                        選択してください
+                      </option>
+                      <option value="鑑定のご予約について">鑑定のご予約について</option>
+                      <option value="サービスに関するお問い合わせ">サービスに関するお問い合わせ</option>
+                      <option value="無料体験ワークショップ">無料体験ワークショップ</option>
+                      <option value="取材・お仕事のご依頼">取材・お仕事のご依頼</option>
+                      <option value="その他">その他</option>
+                    </select>
+                    <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-warm-400 pointer-events-none" aria-hidden />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[11px] tracking-wide text-warm-500 ml-0.5">メッセージ</label>
