@@ -31,7 +31,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto flex flex-col gap-12 sm:gap-16 md:gap-20">
           <motion.div {...fadeUp} className="w-full max-w-3xl mx-auto flex justify-center">
             <img
-              src="/images/h_1.svg"
+              src="/images/profile-card-a4.svg"
               alt="私たちの想い"
               className="w-full h-auto max-h-[60vh] object-contain object-center rounded-2xl"
             />
