@@ -28,7 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={shipporiMincho.variable} suppressHydrationWarning>
-      <body className="min-h-screen w-full m-0 text-ink font-serif antialiased" suppressHydrationWarning>
+      <body
+        className="min-h-screen w-full m-0 text-ink font-serif antialiased"
+        style={{ backgroundColor: '#faf8f5' }}
+        suppressHydrationWarning
+      >
         <div className="min-h-screen w-full">
           {children}
         </div>

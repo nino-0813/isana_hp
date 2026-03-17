@@ -25,6 +25,8 @@ function reduceToSingle(n: number): number {
 }
 
 function calcTalentNumber(day: number): number {
+  // 日が11・22・33（マスターナンバー）のときはそのまま
+  if (day === 11 || day === 22 || day === 33) return day;
   return reduceToSingle(sumDigits(day));
 }
 
@@ -353,7 +355,7 @@ export default function Home() {
       <section className="relative w-full overflow-hidden bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <img
-            src="/images/137数秘 自分らしさを求めて.svg"
+            src={`/images/${encodeURIComponent('137数秘 自分らしさを求めて.svg')}`}
             alt="137数秘 自分らしさを求めて"
             className="w-full h-auto"
             fetchPriority="high"
