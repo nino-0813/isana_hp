@@ -133,7 +133,7 @@ export default function Workshop() {
             <div>
               <h3 className="font-serif text-warm-800 mb-2">所要時間・人数</h3>
               <p className="text-warm-600 text-sm leading-relaxed">
-                約90分〜120分を目安に実施。少人数制（目安：2〜6名程度）で、一人ひとりに寄り添う形で進めます。
+                約60分〜90分を目安に実施。少人数制（目安：2〜6名程度）で、一人ひとりに寄り添う形で進めます。
               </p>
             </div>
           </motion.div>
