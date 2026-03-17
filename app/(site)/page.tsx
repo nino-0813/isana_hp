@@ -319,7 +319,7 @@ const PRODUCTS = [
     subtitle: '無料体験',
     desc: 'グループで数秘術を体感できるワークショップ。無料でご参加いただけます。実際に自分の数字を計算しながら、数秘の世界に触れてみましょう。',
     image: '/images/workshop-line.svg',
-    link: '/services',
+    link: '/workshop',
     linkLabel: '無料体験に申し込む',
   },
 ] as const;
@@ -328,22 +328,22 @@ const TOOL_CARDS = [
   {
     title: '誕生日で自己理解',
     desc: '生年月日から数の神秘をひも解いて、智慧を生活に活かすことを数秘術と呼びます。まずはご自身のナンバーを知ることからはじめませんか？',
-    image: '/images/h_02.svg',
-    link: '/services',
+    image: '/images/logo-sns.png',
+    link: '/tools/mynumber',
     linkLabel: 'マイナンバーを知る',
   },
   {
     title: '自己理解の次に他者理解',
     desc: '自分の持って生まれた才能、本質を知り受け容れていく。そして他者を認め信じることで、仕事も家庭も豊かになっていきます。',
-    image: '/images/h_04.svg',
-    link: '/services',
+    image: '/images/logo-sns.png',
+    link: '/tools/compatibility',
     linkLabel: '相性を読み解く',
   },
   {
     title: '人生の方向性を知る',
     desc: '人生の方向性を知ることができるなら、知ってみたいと思いませんか？これから巡ってくる年を知ることで、心の迷いが消え自然体で人生を楽しむことができます。',
-    image: '/images/testimonials-header.png',
-    link: '/services',
+    image: '/images/logo-sns.png',
+    link: '/tools/cycle',
     linkLabel: '9年サイクルについて',
   },
 ] as const;
@@ -474,7 +474,7 @@ export default function Home() {
           <div className="w-12 h-px bg-warm-300 mx-auto" />
         </motion.div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-3 gap-3 sm:gap-6 md:gap-8">
           {TOOL_CARDS.map((card, i) => (
             <motion.div
               key={i}
@@ -482,23 +482,23 @@ export default function Home() {
               transition={{ ...fadeUp.transition, delay: i * 0.1 }}
               className="card-natural overflow-hidden flex flex-col"
             >
-              <div className="relative w-full aspect-[4/3] bg-warm-100">
+              <div className={`relative w-full bg-warm-100 ${card.image === '/images/logo-sns.png' ? 'aspect-square' : 'aspect-[4/3]'}`}>
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  className={`absolute inset-0 w-full h-full object-center ${card.image === '/images/logo-sns.png' ? 'object-contain' : 'object-cover'}`}
                   loading="lazy"
                 />
               </div>
-              <div className="p-5 sm:p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-serif text-warm-800 mb-3">{card.title}</h3>
-                <p className="text-warm-600 text-sm leading-relaxed mb-5 flex-1">{card.desc}</p>
+              <div className="p-3 sm:p-5 md:p-6 flex flex-col flex-1">
+                <h3 className="text-xs sm:text-base md:text-lg font-serif text-warm-800 mb-1 sm:mb-3 leading-tight">{card.title}</h3>
+                <p className="text-warm-600 text-[10px] sm:text-sm leading-relaxed mb-2 sm:mb-5 flex-1 line-clamp-3 sm:line-clamp-none">{card.desc}</p>
                 <Link
                   href={card.link}
-                  className="inline-flex items-center gap-2 text-sm text-warm-700 hover:text-warm-900 transition-colors group"
+                  className="inline-flex items-center gap-1 sm:gap-2 text-[10px] sm:text-sm text-warm-700 hover:text-warm-900 transition-colors group"
                 >
-                  {card.linkLabel}
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  <span className="truncate">{card.linkLabel}</span>
+                  <ArrowRight size={12} className="shrink-0 sm:w-[14px] sm:h-[14px]" />
                 </Link>
               </div>
             </motion.div>

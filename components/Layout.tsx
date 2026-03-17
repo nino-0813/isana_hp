@@ -37,7 +37,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-warm-200/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 min-w-0">
-          <span className="font-serif text-lg sm:text-xl tracking-wider text-warm-800">isana</span>
+          <img
+            src="/images/logo-sns.png"
+            alt="isana"
+            className="h-9 sm:h-10 w-auto object-contain"
+            width={36}
+            height={36}
+          />
           <span className="text-[9px] sm:text-[10px] tracking-widest text-warm-500 hidden sm:inline">数秘術</span>
         </Link>
 

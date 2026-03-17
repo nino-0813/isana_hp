@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { getAllPosts } from '@/lib/blog-posts';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -12,42 +13,6 @@ const fadeUp = {
   viewport: { once: true, margin: '-40px' },
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
 };
-
-const posts = [
-  {
-    id: 1,
-    title: 'なぜ「いい人」止まり？数秘から見る恋愛のブロック',
-    excerpt:
-      'いつもいい人と言われるけれど、恋愛に発展しない。その原因はあなたの誕生日に隠されているかもしれません。',
-    category: '人間関係',
-    date: '2024.03.01',
-    image: 'https://images.unsplash.com/photo-1516589174184-c6852661448c?q=80&w=1974&auto=format&fit=crop',
-  },
-  {
-    id: 2,
-    title: '運命のパートナーと出会うための「心の整え方」',
-    excerpt: '出会いがないと嘆く前に、まずは自分のエネルギーを整えることが大切です。数秘術的なアプローチをご紹介します。',
-    category: 'マインドセット',
-    date: '2024.02.25',
-    image: 'https://images.unsplash.com/photo-1499209974431-9dac3adaf471?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    id: 3,
-    title: 'ライフパスナンバー別：あなたにぴったりの出会いの場所',
-    excerpt: 'パーティーが向いている人、静かな場所が向いている人。数字によって最適な出会いのシチュエーションは異なります。',
-    category: '数秘術',
-    date: '2024.02.18',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop',
-  },
-  {
-    id: 4,
-    title: '執着を手放すと、最高のパートナーが現れる理由',
-    excerpt: '「結婚しなきゃ」という焦りが、実は出会いを遠ざけていることも。数秘のサイクルから見る手放しのタイミング。',
-    category: 'スピリチュアル',
-    date: '2024.02.10',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop',
-  },
-];
 
 export default function Blog() {
   return (
@@ -64,7 +29,7 @@ export default function Blog() {
 
       <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {posts.map((post, i) => (
+          {getAllPosts().map((post, i) => (
             <motion.article
               key={post.id}
               {...fadeUp}

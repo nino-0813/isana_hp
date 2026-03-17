@@ -2,14 +2,42 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = React.useState(false);
+  const [error, setError] = React.useState('');
+  const [sending, setSending] = React.useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const subject = formData.get('subject') as string;
+    const message = formData.get('message') as string;
+
+    setSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error || '送信に失敗しました。');
+        return;
+      }
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setError('送信に失敗しました。しばらく経ってからお試しください。');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -42,25 +70,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-serif text-warm-800 mb-1">Email</h4>
-                  <p className="text-warm-600 text-sm">info@isana-numerology.com</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-warm-100 flex items-center justify-center shrink-0">
-                  <Phone size={18} className="text-warm-600" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-warm-800 mb-1">Phone</h4>
-                  <p className="text-warm-600 text-sm">03-xxxx-xxxx (平日 10:00 - 18:00)</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-warm-100 flex items-center justify-center shrink-0">
-                  <MapPin size={18} className="text-warm-600" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-warm-800 mb-1">Office</h4>
-                  <p className="text-warm-600 text-sm">東京都港区南青山（完全予約制）</p>
+                  <p className="text-warm-600 text-sm">137llc.com@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -91,11 +101,15 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {error && (
+                  <p className="text-red-600 text-sm bg-red-50 py-2 px-3 rounded-lg">{error}</p>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[11px] tracking-wide text-warm-500 ml-0.5">お名前</label>
                     <input
                       required
+                      name="name"
                       type="text"
                       placeholder="お名前"
                       className="w-full bg-white border border-warm-200 rounded-lg py-3 px-4 text-sm focus:border-warm-400 outline-none transition-colors"
@@ -105,6 +119,7 @@ export default function Contact() {
                     <label className="text-[11px] tracking-wide text-warm-500 ml-0.5">メールアドレス</label>
                     <input
                       required
+                      name="email"
                       type="email"
                       placeholder="メールアドレス"
                       className="w-full bg-white border border-warm-200 rounded-lg py-3 px-4 text-sm focus:border-warm-400 outline-none transition-colors"
@@ -113,17 +128,22 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[11px] tracking-wide text-warm-500 ml-0.5">お問い合わせ内容</label>
-                  <select className="w-full bg-white border border-warm-200 rounded-lg py-3 px-4 text-sm focus:border-warm-400 outline-none transition-colors appearance-none">
-                    <option>鑑定のご予約について</option>
-                    <option>サービスに関するお問い合わせ</option>
-                    <option>取材・お仕事のご依頼</option>
-                    <option>その他</option>
+                  <select
+                    name="subject"
+                    className="w-full bg-white border border-warm-200 rounded-lg py-3 px-4 text-sm focus:border-warm-400 outline-none transition-colors appearance-none"
+                  >
+                    <option value="鑑定のご予約について">鑑定のご予約について</option>
+                    <option value="サービスに関するお問い合わせ">サービスに関するお問い合わせ</option>
+                    <option value="無料体験ワークショップ">無料体験ワークショップ</option>
+                    <option value="取材・お仕事のご依頼">取材・お仕事のご依頼</option>
+                    <option value="その他">その他</option>
                   </select>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[11px] tracking-wide text-warm-500 ml-0.5">メッセージ</label>
                   <textarea
                     required
+                    name="message"
                     rows={5}
                     placeholder="メッセージを入力してください"
                     className="w-full bg-white border border-warm-200 rounded-lg py-3 px-4 text-sm focus:border-warm-400 outline-none transition-colors resize-none"
@@ -131,9 +151,10 @@ export default function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-warm-800 text-white py-3.5 rounded-full hover:bg-warm-700 transition-colors text-sm tracking-wider touch-manipulation"
+                  disabled={sending}
+                  className="w-full bg-warm-800 text-white py-3.5 rounded-full hover:bg-warm-700 transition-colors text-sm tracking-wider touch-manipulation disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  メッセージを送信する
+                  {sending ? '送信中...' : 'メッセージを送信する'}
                 </button>
               </form>
             )}

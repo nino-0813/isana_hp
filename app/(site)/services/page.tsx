@@ -58,7 +58,7 @@ const products = [
     ],
     image: '/images/workshop-line.svg',
     linkLabel: '無料体験に申し込む',
-    linkHref: '/contact',
+    linkHref: '/workshop',
   },
 ];
 
