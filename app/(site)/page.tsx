@@ -300,27 +300,27 @@ const NINE_WAVES = [
 const PRODUCTS = [
   {
     title: '書籍',
-    subtitle: '¥1,760〜',
-    desc: '数字の意味や、誕生日から導き出されるあなただけのナンバーについて分かりやすくまとめた一冊。しなやかに生きるヒントを、ぜひ手に取って感じてください。',
-    image: '/images/h_01.svg',
+    subtitle: '製作中',
+    desc: '数字の意味や、誕生日から導き出されるあなただけのナンバーについて分かりやすくまとめた一冊を製作中です。完成しましたら、Kindleでご購入いただけるよう準備を進めております。しなやかに生きるヒントを、ぜひ手に取って感じてください。',
+    image: '/images/ebook-cover.svg',
     link: '/services',
-    linkLabel: '書籍を購入する',
+    linkLabel: '詳細を見る',
   },
   {
     title: '個人鑑定書',
     subtitle: '¥5,500〜',
     desc: '数字に込められた意味を知り、自分らしく日々を過ごすための取扱説明書。ご自身や大切な方のライフプランニングにお役立てください。',
-    image: '/images/core-presentation.svg',
+    image: '/images/assessment-doc-a4.svg',
     link: '/services',
     linkLabel: '鑑定書を購入する',
   },
   {
     title: '講座・ワークショップ',
-    subtitle: '¥3,300〜',
-    desc: 'グループで数秘術を体感できるワークショップ。実際に自分の数字を計算しながら、数秘の世界に触れてみましょう。',
+    subtitle: '無料体験',
+    desc: 'グループで数秘術を体感できるワークショップ。無料でご参加いただけます。実際に自分の数字を計算しながら、数秘の世界に触れてみましょう。',
     image: '/images/h_03.svg',
     link: '/services',
-    linkLabel: '講座に申し込む',
+    linkLabel: '無料体験に申し込む',
   },
 ] as const;
 
@@ -408,7 +408,7 @@ export default function Home() {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className={`absolute inset-0 w-full h-full object-center ${product.image === '/images/ebook-cover.svg' || product.image === '/images/assessment-doc-a4.svg' ? 'object-contain' : 'object-cover'}`}
                     loading="lazy"
                   />
                 </div>

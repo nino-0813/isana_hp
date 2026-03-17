@@ -16,16 +16,16 @@ const products = [
   {
     icon: BookOpen,
     title: '書籍',
-    price: '¥1,760〜',
-    desc: '数字の意味や、誕生日から導き出されるあなただけのナンバーについて分かりやすくまとめた一冊。まずは手軽に数秘術の世界に触れたい方におすすめです。',
+    price: '製作中',
+    desc: '数字の意味や、誕生日から導き出されるあなただけのナンバーについて分かりやすくまとめた一冊を製作中です。完成しましたら、Kindleでご購入いただけるよう準備を進めております。',
     features: [
       '数字1〜9、マスターナンバーの意味を解説',
       '才能数・本質数・探究数の読み解き方',
       '9年周期のバイオリズムの活かし方',
-      '書き込み式の実践シート付き',
+      '完成後はKindleでご購入いただけます（予定）',
     ],
-    image: '/images/h_01.svg',
-    linkLabel: '書籍を購入する',
+    image: '/images/ebook-cover.svg',
+    linkLabel: '詳細を見る',
     linkHref: '#',
   },
   {
@@ -39,7 +39,7 @@ const products = [
       '強みと課題の分析レポート',
       '大切な方へのギフトにも',
     ],
-    image: '/images/core-presentation.svg',
+    image: '/images/assessment-doc-a4.svg',
     linkLabel: '鑑定書を購入する',
     linkHref: '#',
     featured: true,
@@ -47,16 +47,17 @@ const products = [
   {
     icon: Users,
     title: '講座・ワークショップ',
-    price: '¥3,300〜',
-    desc: 'グループで数秘術を体感できるワークショップ。実際に自分の数字を計算しながら、数秘の世界を楽しく学べます。',
+    price: '無料体験',
+    desc: 'グループで数秘術を体感できるワークショップ。無料でご参加いただけます。実際に自分の数字を計算しながら、数秘の世界を楽しく学べます。',
     features: [
+      '無料で体験いただけます',
       '少人数制で一人ひとり丁寧にサポート',
       'オンライン / 対面から選択可',
       '自分の数字をその場で算出・解説',
       '参加者同士の交流タイムあり',
     ],
     image: '/images/h_03.svg',
-    linkLabel: '講座に申し込む',
+    linkLabel: '無料体験に申し込む',
     linkHref: '/contact',
   },
 ];
@@ -89,7 +90,7 @@ export default function Services() {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className={`absolute inset-0 w-full h-full object-center ${product.image === '/images/ebook-cover.svg' || product.image === '/images/assessment-doc-a4.svg' ? 'object-contain' : 'object-cover'}`}
                     loading="lazy"
                   />
                 </div>
@@ -130,7 +131,7 @@ export default function Services() {
           </motion.div>
           <div className="space-y-4 sm:space-y-6">
             {[
-              { q: '書籍はどこで購入できますか？', a: 'Amazonなどのオンライン書店、または全国の書店でお求めいただけます。' },
+              { q: '書籍はいつ発売されますか？', a: '現在製作中です。完成次第、Kindleでご購入いただけるよう準備を進めております。' },
               { q: '個人鑑定書はどのくらいで届きますか？', a: 'お申し込みから通常1〜2週間でお届けいたします。PDFデータでのお届けも可能です。' },
               { q: 'ワークショップはオンラインでも参加できますか？', a: 'はい、ZoomやGoogle Meetを使用したオンライン開催も行っております。全国どこからでもご参加いただけます。' },
               { q: '数秘術が初めてでも大丈夫ですか？', a: 'はい、もちろんです。初めての方でも楽しんでいただけるよう、基礎から丁寧にご説明いたします。' },
